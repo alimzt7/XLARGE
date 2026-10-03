@@ -1,0 +1,99 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: Blaka;
+  src: url("../public/fonts/Blaka-Regular.ttf");
+}
+
+:root {
+  --font-hero-size: clamp(3.5rem, 2.5rem + 2.5vw, 5rem);
+  --font-h1: clamp(2rem, 1.5rem + 2.5vw, 3rem);
+  --font-h2: clamp(1.5rem, 1.2rem + 1.5vw, 2.25rem);
+  --font-body: clamp(0.9375rem, 0.9rem + 0.2vw, 1.0625rem);
+}
+
+:root,
+html.dark {
+  color-scheme: dark;
+  --color-primary: 109 0 26;
+  --color-background: 13 13 15;
+  --color-surface: 42 42 46;
+  --color-text-primary: 242 239 233;
+  --color-text-secondary: 160 160 160;
+  --font-hero: Blaka;
+}
+
+html.light {
+  color-scheme: light;
+  --color-primary: 109 0 26;
+  --color-background: 247 243 238;
+  --color-surface: 255 252 247;
+  --color-text-primary: 35 25 24;
+  --color-text-secondary: 105 91 87;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  direction: rtl;
+  background: rgb(var(--color-background));
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: rgb(var(--color-background));
+  color: rgb(var(--color-text-primary));
+  font-family: var(--font-yekan), Tahoma, Arial, sans-serif;
+  text-rendering: optimizeLegibility;
+  transition:
+    background-color 300ms ease,
+    color 300ms ease;
+}
+
+.hero-title {
+  font-family: var(--font-hero);
+}
+
+.hero-image {
+  opacity: 0;
+  transition: opacity 350ms ease;
+}
+
+html.dark .hero-image-dark,
+html.light .hero-image-light {
+  opacity: 2;
+}
+
+button {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+::selection {
+  background: rgb(var(--color-primary));
+  color: rgb(var(--color-text-primary));
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .scrollbar-none {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+}
